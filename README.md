@@ -1,15 +1,15 @@
 
 <div align="center">
-  <img border-radius: 15px src="https://avatars.githubusercontent.com/u/83164448?v=4" width="200" height="200"/>
+  <img border-radius: 15px src="https://avatars.githubusercontent.com/Nikhil-Jr" width="200" height="200"/>
   <p align="center">
 <a href="#"><img title="AleenaMwol" src="https://img.shields.io/badge/AleenaMwol-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
   <p align="center">
-<a href="https://github.com/nikhiljr10"><img title="Author" src="https://img.shields.io/badge/Author-nikhiljr10/AleenaMwol?color=red&style=for-the-badge&logo=whatsapp"></a>
+<a href="https://github.com/Nikhil-Jr"><img title="Author" src="https://img.shields.io/badge/Author-Nikhil-Jr/Aleena?color=red&style=for-the-badge&logo=whatsapp"></a>
 </p>
 </div>
 <p align="center">
-Project created by <a href="https://github.com/nikhiljr10">Nikhil Jr</a> to make it public
+Project created by <a href="https://github.com/Nikhil-Jr">Nikhil Jr</a> to make it public
     <br>
        | © |
         Reserved |
@@ -19,13 +19,13 @@ Project created by <a href="https://github.com/nikhiljr10">Nikhil Jr</a> to make
 ----
 
   <p align="center">
-  <a href="httsp://github.com/nikhiljr10/AleenaMwol">
-    <img src="https://img.shields.io/github/repo-size/nikhiljr10/AleenaMwol?color=green&label=Repo%20total%20size&style=plastic">
+  <a href="httsp://github.com/Nikhil-Jr/Aleena">
+    <img src="https://img.shields.io/github/repo-size/Nikhil-Jr/Aleena?color=green&label=Repo%20total%20size&style=plastic">
 <p align="center">
-<a href="https://github.com/nikhiljr10/followers"><img title="Followers" src="https://img.shields.io/github/followers/nikhiljr10?color=blue&style=flat-square"></a>
-<a href="https://github.com/nikhiljr10/AleenaMwol/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/nikhiljr10/AleenaMwol?color=blue&style=flat-square"></a>
-<a href="https://github.com/nikhiljr10/AleenaMwol/network/members"><img title="Forks" src="https://img.shields.io/github/forks/nikhiljr10/AleenaMwol?color=blue&style=flat-square"></a>
-<a href="https://github.com/nikhiljr10/AleenaMwol/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/nikhiljr10/AleenaMwol?label=Watchers&color=blue&style=flat-square"></a>
+<a href="https://github.com/Nikhil-Jr/followers"><img title="Followers" src="https://img.shields.io/github/followers/Nikhil-Jr?color=blue&style=flat-square"></a>
+<a href="https://github.com/Nikhil-Jr/Aleena/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/Nikhil-Jr/Aleena?color=blue&style=flat-square"></a>
+<a href="https://github.com/Nikhil-Jr/Aleena/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Nikhil-Jr/Aleena?color=blue&style=flat-square"></a>
+<a href="https://github.com/Nikhil-Jr/Aleena/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/Nikhil-Jr/Aleena?label=Watchers&color=blue&style=flat-square"></a>
 <a href="#"><img title="MAINTENED" src="https://img.shields.io/badge/UNMAINTENED-YES-blue.svg"</a>
 </p>
 
@@ -36,7 +36,7 @@ Click WA logo to Join Support Group 👇
   [![join](https://github.com/Alien-alfa/PublicBot/blob/main/wlogo.svg.png)](https://chat.whatsapp.com/L7nVhwQh9NX59hqyVswgoG)
   <div align="center">
        
-  [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=nikhiljr10&repo=PublicBot&theme=nightowl)](https://github.com/nikhiljr10/AleenaBot)
+  [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Nikhil-Jr&repo=PublicBot&theme=nightowl)](https://github.com/Nikhil-Jr/Aleena)
   </div>
     
 ## Setup
@@ -46,7 +46,7 @@ Click WA logo to Join Support Group 👇
   
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@phaticusthiccy/WhatsAsena-QR)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/farhan-dqz/JulieMwol)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Nikhil-Jr/Aleena)
      </div>
 <br>
 <br >
@@ -61,8 +61,8 @@ GET QR
 $ apt update
 $ apt install nodejs --fix-missing
 $ pkg install git
-$ git clone https://github.com/nikhiljr10/AleenaMwol
-$ cd AleenaMwol
+$ git clone https://github.com/Nikhil-Jr/Aleena
+$ cd Aleena
 $ chmod +x *
 $ npm install @adiwajshing/baileys
 $ npm install chalk
@@ -71,8 +71,8 @@ $ node qr.js
       
 ```js
 SETUP
-$ git clone https://github.com/nikhiljr10/AleenaMwol
-$ cd AleenaMwol
+$ git clone https://github.com/Nikhil-Jr/Aleena
+$ cd Aleena
 $ chmod +x *
 $ npm i
 $ node qr.js
@@ -92,9 +92,9 @@ By establishing the Asena, you are deemed to have accepted these responsibilitie
 ## Developers
   <div align="center">
     
-  [![Farhan-Dqz](https://github.com/farhan-dqz.png?size=100)](https://github.com/farhan-dqz) |  [![Nikhil Jr](https://github.com/nikhiljr10.png?size=100)](https://github.com/nikhiljr10) | [![afnanplk](https://github.com/afnanplk.png?size=100)](https://github.com/afnanplk) 
+  [![Farhan-Dqz](https://github.com/farhan-dqz.png?size=100)](https://github.com/farhan-dqz) |  [![Nikhil Jr](https://github.com/Nikhil-Jr.png?size=100)](https://github.com/Nikhil-Jr) | [![afnanplk](https://github.com/afnanplk.png?size=100)](https://github.com/afnanplk) 
 ----|----|----
-[farhan-dqz](https://github.com/farhan-dqz)  | [Nikhil Jr](https://github.com/nikhiljr10) | [afnanplk](https://github.com/afnanplk)
+[farhan-dqz](https://github.com/farhan-dqz)  | [Nikhil Jr](https://github.com/Nikhil-Jr) | [afnanplk](https://github.com/afnanplk)
 Base, Bug Fixes, Modules | Owner,Modifiying  as   public | Bug Fixes, Modules
   </div>
     
