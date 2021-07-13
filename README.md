@@ -36,7 +36,7 @@ Click WA logo to Join Support Group 👇
   [![join](https://github.com/Alien-alfa/PublicBot/blob/main/wlogo.svg.png)](https://chat.whatsapp.com/L7nVhwQh9NX59hqyVswgoG)
   <div align="center">
        
-  [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Nikhil-Jr&repo=PublicBot&theme=nightowl)](https://github.com/Nikhil-Jr/Aleena)
+  [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Nikhil-Jr&repo=Aleena&theme=nightowl)](https://github.com/Nikhil-Jr/Aleena)
   </div>
     
 ## Setup
