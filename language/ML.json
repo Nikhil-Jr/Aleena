@@ -72,9 +72,9 @@
             "MUST_TEXT": "```eathellum oru messagin reply cheyyu```"
         },
         "heroku": {
-            "RESTART_DESC": "\nRestart pinkymwol\n",
+            "RESTART_DESC": "\nRestart Aleenamwol\n",
             "RESTART_MSG": "```punararambikkunu...```",
-            "SHUTDOWN_DESC": "\nShutdown pinkymwol\n",
+            "SHUTDOWN_DESC": "\nShutdown Aleenamwol\n",
             "SHUTDOWN_MSG": "```adach poottunnu ⛔```",
             "DYNO_DESC": "heroku dyno kanaan ",
             "DYNO_TOTAL": "```motham Quota```",
@@ -217,7 +217,7 @@
         "updater": {
             "UPDATER_DESC": "update indo enn ariyaan.",
             "UPDATE": "*ningalude bot up-to-date aan!*",
-            "NEW_UPDATE": "*Aleena mwolusinu our Update und* \n\n update cheyummathin munb support groupil chodhikkuka , allenkkil error veran chance und\n\nChanges:\n```",
+            "NEW_UPDATE": "*Aleena Mwolkk oru Update und* \n\n update cheyummathin munb support groupil chodhikkuka , allenkkil error veran chance und\n\nChanges:\n```",
             "UPDATE_NOW_DESC": "botine update cheyaan.",
             "UPDATING": "```Updating..🐥```",
             "INVALID_HEROKU": "*❌ ningal thanna Heroku information thett aan !*",
