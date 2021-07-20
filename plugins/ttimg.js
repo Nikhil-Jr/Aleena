@@ -5,8 +5,8 @@ const fs = require('fs');
 const axios = require('axios');
 
 // LIST
-const EFFECT_DESC = "Text effective රූප බවට පරිවර්තනය කිරීම සඳහා විධාන කට්ටලයක්."
-const NEED_WORD = "*ඔබ වචනයක් ඇතුළත් කළ යුතුය*"
+const EFFECT_DESC = "Text effective A set of commands for converting images."
+const NEED_WORD = "*You must enter a word*"
 
 if (Config.WORKTYPE == 'public') {
 
