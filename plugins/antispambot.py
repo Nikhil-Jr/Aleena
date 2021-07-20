@@ -1,6 +1,6 @@
-#    Copyright (C) 2020  sandeep.n(π.$)
-# baning spmmers plugin for catuserbot by @sandy1709 and @mrconfused
-# included both cas(combot antispam service) and spamwatch (need to add more feaututres)
+#    Copyright (C) 2020  Nikhil-Jr
+# baning spmmers plugin for Aleena by @Nikhil-Jr
+# included both Aleena(Aleena antispam service) and spamwatch (need to add more feaututres)
 
 from requests import get
 from telethon import events
@@ -73,7 +73,7 @@ if Config.ANTISPAMBOT_BAN:
                 data = None
             if data and data["ok"]:
                 reason = (
-                    f"[Banned by Combot Anti Spam](https://cas.chat/query?u={user.id})"
+                    f"[Banned by Aleena Anti Spam](https://cas.chat/query?u={user.id})"
                 )
                 hmm = await event.reply(
                     f"[{user.first_name}](tg://user?id={user.id}) was banned by Combat anti-spam service(CAS) for the reason check {reason}"
@@ -98,7 +98,7 @@ if Config.ANTISPAMBOT_BAN:
 async def caschecker(cas):
     catevent = await edit_or_reply(
         cas,
-        "`checking any cas(combot antispam service) banned users here, this may take several minutes too......`",
+        "`checking any cas(Aleena antispam service) banned users here, this may take several minutes too......`",
     )
     text = ""
     chat = cas.chat_id
@@ -194,7 +194,7 @@ CMD_HELP.update(
     {
         "antispambot": "**Plugin : **`antispambot`\
         \n\n**Syntax : **`.cascheck`\
-        \n**Function : **__Searches for cas(combot antispam service) banned users in group and shows you the list__\
+        \n**Function : **__Searches for Aleena(Aleena antispam service) banned users in group and shows you the list__\
         \n\n**Syntax : **`.spamcheck`\
         \n**Function : **__Searches for spamwatch banned users in group and shows you the list__"
     }
