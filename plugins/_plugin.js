@@ -4,109 +4,105 @@ Licensed under the  GPL-3.0 License;
 you may not use this file except in compliance with the License.
 
 WhatsAsena - Yusuf Usta
+Developer & Co-Founder - Phaticusthiccy
 */
 
 const Asena = require('../events');
-const Heroku = require('heroku-client');
-const Config = require('../config');
 const {MessageType} = require('@adiwajshing/baileys');
-const got = require('got');
-const fs = require('fs');
-const Db = require('./sql/plugin');
+const Config = require('../config');
 
 const Language = require('../language');
-const Lang = Language.getString('_plugin');
-const NLang = Language.getString('updater');
+const Lang = Language.getString('afk');
 
-let msg = Config.LANG == 'TR' || Config.LANG == 'AZ' ? '*Bu Plugin Resmi Olarak Onaylanmıştır!* ✅' : '*This Plugin is Officially Approved!* ✅'
-let inmsg = Config.LANG == 'TR' || Config.LANG == 'AZ' ? '*Bu Plugin Resmi Değildir!* ❌' : '*This Plugin isn\'t Officially Approved!* ❌'
+var AFK = {
+    isAfk: false,
+    reason: false,
+    lastseen: 0
+};
 
-const heroku = new Heroku({
-    token: Config.HEROKU.API_KEY
-});
+// https://stackoverflow.com/a/37096512
+function secondsToHms(d) {
+    d = Number(d);
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var s = Math.floor(d % 3600 % 60);
 
+    var hDisplay = h > 0 ? h + (h == 1 ? " " + Lang.HOUR + ", " : " " + Lang.HOUR + ", ") : "";
+    var mDisplay = m > 0 ? m + (m == 1 ? " " + Lang.MINUTE + ", " : " " + Lang.MINUTE + ", ") : "";
+    var sDisplay = s > 0 ? s + (s == 1 ? " " + Lang.SECOND : " " + Lang.SECOND) : "";
+    return hDisplay + mDisplay + sDisplay; 
+}
 
-let baseURI = '/apps/' + Config.HEROKU.APP_NAME;
+Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
+    if (Config.AFKMSG == 'default') {
 
-Asena.addCommand({pattern: 'install ?(.*)', fromMe: true, desc: Lang.INSTALL_DESC, warn: Lang.WARN}, (async (message, match) => {
-    if (match[1] === '') return await message.sendMessage(Lang.NEED_URL + '.install https://gist.github.com/phaticusthiccy/4232b1c8c4734e1f06c3d991149c6fbd')
-    try {
-        var url = new URL(match[1]);
-    } catch {
-        return await message.sendMessage(Lang.INVALID_URL);
-    }
-    
-    if (url.host === 'gist.github.com') {
-        url.host = 'gist.githubusercontent.com';
-        url = url.toString() + '/raw'
-    } else {
-        url = url.toString()
-    }
-
-    var response = await got(url);
-    if (response.statusCode == 200) {
-        // plugin adı
-        var plugin_name = response.body.match(/addCommand\({.*pattern: ["'](.*)["'].*}/);
-        if (plugin_name.length >= 1) {
-            plugin_name = "__" + plugin_name[1];
-        } else {
-            plugin_name = "__" + Math.random().toString(36).substring(8);
-        }
-
-        fs.writeFileSync('./plugins/' + plugin_name + '.js', response.body);
-        try {
-            require('./' + plugin_name);
-        } catch (e) {
-            fs.unlinkSync('/root/WhatsAsenaDuplicated/plugins/' + plugin_name + '.js')
-            return await message.sendMessage(Lang.INVALID_PLUGIN + ' ```' + e + '```');
-        }
-
-        await Db.installPlugin(url, plugin_name);
-        await message.client.sendMessage(message.jid, Lang.INSTALLED, MessageType.text);
-        if (!match[1].includes('phaticusthiccy')) {
-            await new Promise(r => setTimeout(r, 400));
-            await message.client.sendMessage(message.jid, Lang.UNOFF, MessageType.text);
-        }
-    }
-}));
-
-Asena.addCommand({pattern: 'plugin', fromMe: true, desc: Lang.PLUGIN_DESC }, (async (message, match) => {
-    var mesaj = Lang.INSTALLED_FROM_REMOTE;
-    var plugins = await Db.PluginDB.findAll();
-    if (plugins.length < 1) {
-        return await message.sendMessage(Lang.NO_PLUGIN);
-    } else {
-        plugins.map(
-            (plugin) => {
-                let vf = plugin.dataValues.url.includes('phaticusthiccy') ? msg : inmsg
-                mesaj += '```' + plugin.dataValues.name + '```: ' + plugin.dataValues.url + '\n' + vf + '\n\n';
+        if (AFK.isAfk && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
+            (( message.mention !== false && message.mention.length !== 0 ) || message.reply_message !== false)))) {
+            if (message.jid.includes('-') && (message.mention !== false && message.mention.length !== 0)) {
+                message.mention.map(async (jid) => {
+                    if (message.client.user.jid.split('@')[0] === jid.split('@')[0]) {
+                        await message.client.sendMessage(message.jid,Lang.AFK_TEXT + '\n' + 
+                        (AFK.reason !== false ? '\n*' + Lang.REASON + ':* ```' + AFK.reason + '```' : '') + 
+                        (AFK.lastseen !== 0 ? '\n*' + Lang.LAST_SEEN + ':* ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + Lang.AGO : ''), MessageType.text, {quoted: message.data});            
+                    }
+                })
+            } else if (message.jid.includes('-') && message.reply_message !== false) {
+                if (message.reply_message.jid.split('@')[0] === message.client.user.jid.split('@')[0]) {
+                    await message.client.sendMessage(message.jid,Lang.AFK_TEXT + '\n' + 
+                        (AFK.reason !== false ? '\n*' + Lang.REASON + ':* ```' + AFK.reason + '```' : '') + 
+                        (AFK.lastseen !== 0 ? '\n*' + Lang.LAST_SEEN + ':* ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + Lang.AGO : ''), MessageType.text, {quoted: message.data});
+                }
+            } else {
+                await message.client.sendMessage(message.jid,Lang.AFK_TEXT + '\n' + 
+                (AFK.reason !== false ? '\n*' + Lang.REASON + ':* ```' + AFK.reason + '```' : '') + 
+                (AFK.lastseen !== 0 ? '\n*' + Lang.LAST_SEEN + ':* ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + Lang.AGO : ''), MessageType.text, {quoted: message.data});
             }
-        );
-        return await message.client.sendMessage(message.jid, mesaj, MessageType.text);
+        }
+    }
+    else {
+        if (AFK.isAfk && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
+            (( message.mention !== false && message.mention.length !== 0 ) || message.reply_message !== false)))) {
+            if (message.jid.includes('-') && (message.mention !== false && message.mention.length !== 0)) {
+                message.mention.map(async (jid) => {
+                    if (message.client.user.jid.split('@')[0] === jid.split('@')[0]) {
+                        await message.client.sendMessage(message.jid,Config.AFKMSG + '\n' + 
+                        (AFK.reason !== false ? '\n*' + Lang.REASON + ':* ```' + AFK.reason + '```' : '') + 
+                        (AFK.lastseen !== 0 ? '\n*' + Lang.LAST_SEEN + ':* ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + Lang.AGO : ''), MessageType.text, {quoted: message.data});            
+                    }
+                })
+            } else if (message.jid.includes('-') && message.reply_message !== false) {
+                if (message.reply_message.jid.split('@')[0] === message.client.user.jid.split('@')[0]) {
+                    await message.client.sendMessage(message.jid,Config.AFKMSG + '\n' + 
+                        (AFK.reason !== false ? '\n*' + Lang.REASON + ':* ```' + AFK.reason + '```' : '') + 
+                        (AFK.lastseen !== 0 ? '\n*' + Lang.LAST_SEEN + ':* ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + Lang.AGO : ''), MessageType.text, {quoted: message.data});
+                }
+            } else {
+                await message.client.sendMessage(message.jid,Config.AFKMSG + '\n' + 
+                (AFK.reason !== false ? '\n*' + Lang.REASON + ':* ```' + AFK.reason + '```' : '') + 
+                (AFK.lastseen !== 0 ? '\n*' + Lang.LAST_SEEN + ':* ```' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + Lang.AGO : ''), MessageType.text, {quoted: message.data});
+            }
+        }
     }
 }));
 
-Asena.addCommand({pattern: 'remove(?: |$)(.*)', fromMe: true, desc: Lang.REMOVE_DESC}, (async (message, match) => {
-    if (match[1] === '') return await message.sendMessage(Lang.NEED_PLUGIN);
-    if (!match[1].startsWith('__')) match[1] = '__' + match[1];
-    var plugin = await Db.PluginDB.findAll({ where: {name: match[1]} });
-    if (plugin.length < 1) {
-        return await message.sendMessage(message.jid, Lang.NOT_FOUND_PLUGIN, MessageType.text);
-    } else {
-        await plugin[0].destroy();
-        delete require.cache[require.resolve('./' + match[1] + '.js')]
-        fs.unlinkSync('./plugins/' + match[1] + '.js');
-        await message.client.sendMessage(message.jid, Lang.DELETED, MessageType.text);
-        
-        await new Promise(r => setTimeout(r, 1000));
-    
-        await message.sendMessage(NLang.AFTER_UPDATE);
+Asena.addCommand({on: 'text', fromMe: true, deleteCommand: false}, (async (message, match) => {
+    if (AFK.isAfk && !message.id.startsWith('3EB0')) {
+        AFK.lastseen = 0;
+        AFK.reason = false;
+        AFK.isAfk = false;
 
-        console.log(baseURI);
-        await heroku.delete(baseURI + '/dynos').catch(async (error) => {
-            await message.sendMessage(error.message);
-
-        });
+        await message.client.sendMessage(message.jid,Lang.IM_NOT_AFK,MessageType.text);
     }
-
 }));
+
+Asena.addCommand({pattern: 'afk ?(.*)', fromMe: true, dontAddCommandList: true, deleteCommand: false, desc: Lang.AFK_DESC}, (async (message, match) => {     
+    if (!AFK.isAfk) {
+        AFK.lastseen = Math.round((new Date()).getTime() / 1000);
+        if (match[1] !== '') { AFK.reason = match[1]; }
+        AFK.isAfk = true;
+
+        await message.client.sendMessage(message.jid,Lang.IM_AFK + (AFK.reason !== false ? ('\n*' + Lang.REASON +':* ```' + AFK.reason + '```') : ''),MessageType.text);
+    }
+}));
+
+module.exports = { secondsToHms };
