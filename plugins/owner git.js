@@ -39,7 +39,7 @@ if (Config.WORKTYPE == 'private') {
 
     var r_text = new Array ();
     
-    r_text[1] = "*╔═════ALEENA MWOL═════╗*\n           \n *😈═ALEENA═😈* \n\n *Owner Nikhil Jr- http://wa.me/919746138832 \n* *\n🔰instagram:-https://www.instagram.com/mr_bea_n_jr* \n *╚══════♻️═════╝* \n\n *▷Creator: Nikhil Jr*"
+    r_text[1] = "*╔═══ALEENA MWOL═══╗*\n           \n *😈═ALEENA═😈* \n\n *Owner Nikhil Jr- http://wa.me/919746138832*\n \n*🔰instagram:-https://www.instagram.com/mr_bea_n_jr* \n *╚══════♻️═════╝* \n\n *▷Creator: Nikhil Jr*"
 
     
     await message.client.sendMessage(
@@ -52,7 +52,7 @@ if (Config.WORKTYPE == 'private') {
 
         var r_text = new Array ();
     
-        r_text[1] = "*Git links*\n           *\n💥═AleenaMwol Owner Nikhil Jr═💥*\n\n*💘https://github.com/Nikhil-Jr/Aleena*\n*"
+        r_text[1] = "*Git links*\n           \n*💥═AleenaMwol Owner Nikhil Jr═💥*\n\n*💘https://github.com/Nikhil-Jr/Aleena*"
 
     
         await message.client.sendMessage(
