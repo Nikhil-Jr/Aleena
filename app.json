@@ -116,7 +116,7 @@
         "ALIVE_MESSAGE": {
             "description": "Customizable Alive Message! Use => default, to change back.",
             "required": false,
-            "value": "i am alive  \n\n ```coded by afnan pallikkel```"
+            "value": "I am alive  \n\n ```Coded By Nikhil Jr```"
         },
         "BAN_MESSAGE": {
             "description": "Customizable kick Message! Use => default, to change back.",
