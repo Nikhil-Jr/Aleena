@@ -1,7 +1,7 @@
 /* Copyright (C) 2020 Nikhil-Jr.
 Licensed under the  GPL-3.0 License;
 you may not use this file except in compliance with the License.
-WhatsAsena - Yusuf Usta
+ALEENA - Nikhil-Jr
 */
 
 const Asena = require('../events');
@@ -56,15 +56,15 @@ if (Config.LANG == 'ES') ldc = '*Enlace Detectado!*'
 Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (therikick_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
         let regex1 = new RegExp('thayoli')
-        let regex2 = new RegExp('thaayoli')
-        let regex3 = new RegExp('thayolli')
-        let regex4 = new RegExp('thaayolli')
-        let regex5 = new RegExp('thayyoli')
+        let regex2 = new RegExp('poorimone')
+        let regex3 = new RegExp('polayadi')
+        let regex4 = new RegExp('https://chat.whatsapp.com/')
+        let regex5 = new RegExp('koothichi')
         let regex6 = new RegExp('Thayoli')
-        let regex7 = new RegExp('Thaayoli')
-        let regex8 = new RegExp('Thayolli')
-        let regex9 = new RegExp('Thaayolli')
-        let regex10 = new RegExp('Thayyoli')
+        let regex7 = new RegExp('Poorimone')
+        let regex8 = new RegExp('Polayadi')
+        let regex9 = new RegExp('Vedi')
+        let regex10 = new RegExp('Koothichi')
         if (regex1.test(message.message)) {
             var us = await checkUsAdmin(message)
             var im = await checkImAdmin(message)
