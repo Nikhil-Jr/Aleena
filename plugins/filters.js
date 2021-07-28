@@ -156,7 +156,7 @@ await message.client.sendMessage(message.jid, fs.readFileSync('./stickers/mentio
     if (!!message.mention && message.mention[0] == '919496300762@s.whatsapp.net') {
 await message.client.sendMessage(message.jid, fs.readFileSync('./stickers/mention.webp'), MessageType.sticker, { mimetype: Mimetype.webp, quoted : message.data, ptt: false})
     }
-const array = ['Da','Aleena','Hi','Sulthan','Ayye','va','Poda','Sed','va','wow','Ayin','ayn','back','Back','Bot','fuck','Fuck','Hehe','Hello','Hlo','Kill','kill','kiss','line','love','mwolu','Neymar','Mwolu','Tnx','single','tha','thund','z','Z']
+const array = ['Da','Aleena','Hi','Sulthan','Ayye','va','Poda','Sed','va','wow','Ayin','ayn','back','Back','Bot','fuck','Fuck','Hehe','Hello','Hlo','Kill','Killadi','kiss','line','love','mwolu','Neymar','Mwolu','Tnx','single','Sulthan','Evide','tha','thund','z','Z']
 array.map( async (a) => {
 let pattern = new RegExp(`\\b${a}\\b`, 'g');
 if(pattern.test(message.message)){
