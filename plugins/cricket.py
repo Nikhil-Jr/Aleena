@@ -1,6 +1,5 @@
 """
-Created by @Jisan7509
-plugin for Cat_Userbot
+Created by Nikhil-Jr
 """
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
