@@ -19,7 +19,7 @@ Asena.addCommand({pattern: 'git', fromMe: false, desc: Lang.WP}, (async (message
 
     var respoimage = await axios.get(`${r_text[i]}`, { responseType: 'arraybuffer' })
 
-    await message.sendMessage(Buffer(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption: `*ALEENA MWOL*
+    await message.sendMessage(Buffer(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption:*ALEENA MWOL*
 
 ╭════〘 𝑵𝑰𝑲𝑯𝑰𝑳 𝑱𝑹〙════⊷❍
 ┃✧╭─────────────────
