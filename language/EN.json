@@ -2,7 +2,7 @@
     "__ASENAJSON__": true,
     "LANGUAGE": "English",
     "LANGCODE": "en",
-    "AUTHOR": "AsenaDev",
+    "AUTHOR": "Nikhil-Jr",
     "STRINGS": {
         "_asena": {
             "COMMAND": "Command",
@@ -204,7 +204,7 @@
         "sticker": {
             "STICKER_DESC": "It converts your replied photo or video to sticker.",
             "NEED_REPLY": "*Reply to a photo or video!*",
-            "DOWNLOADING": "```Nissaram 🤠```"
+            "DOWNLOADING": "```IPPAM SHERI AKKI THARAM🧑‍💻```"
         },
         "system_stats": {
             "ALIVE_DESC": "Does bot work?",
